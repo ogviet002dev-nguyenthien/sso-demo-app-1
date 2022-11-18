@@ -6,8 +6,9 @@ import {
   RouterStateSnapshot,
   UrlTree,
 } from '@angular/router';
-import { combineLatest, Observable } from 'rxjs';
+import { combineLatest, Observable, of } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 import { AuthService } from './auth.service';
 
 @Injectable({
@@ -24,18 +25,26 @@ export class AuthGuard implements CanActivate {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-    let isAuthServer = this.authService.isLoggedInOnServer();
-    let isAuthAWS = this.authService.isLoggedInOnCognito(); // check login status of user on Cognito
+    // return this.authService.isLoggedInOnServer().pipe(
+    //   map((result) => {
+    //     if (!result) {
+    //       window.location.assign(environment.loginURL);
+    //     }
+    //     return result;
+    //   })
+    // );
+    // let isAuthAWS = this.authService.isLoggedInOnCognito(); // check login status of user on Cognito
 
-    return combineLatest([isAuthServer, isAuthAWS]).pipe(
-      tap((data) => console.log('status of bothside::', data)),
-      map((data) => {
-        const [isServer, isAws] = data;
-        if (!isServer && !isAws) {
-          this.router.navigate(['signin']);
-        }
-        return isServer || isAws;
-      })
-    );
+    // return combineLatest([isAuthServer, isAuthAWS]).pipe(
+    //   tap((data) => console.log('status of bothside::', data)),
+    //   map((data) => {
+    //     const [isServer, isAws] = data;
+    //     if (!isServer && !isAws) {
+    //       this.router.navigate(['signin']);
+    //     }
+    //     return isServer || isAws;
+    //   })
+    // );
+    return of(true);
   }
 }

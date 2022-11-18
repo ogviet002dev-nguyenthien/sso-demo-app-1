@@ -4,9 +4,8 @@ import { SignUpComponent } from 'src/app/auth/sign-up/sign-up.component';
 import { SignInComponent } from 'src/app/auth/sign-in/sign-in.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AuthService } from './auth/auth.service';
-
-import { TokenResolver } from './auth/resolver/token.resolver';
 import { HomeComponent } from './home/home.component';
+import { AuthGuard } from './auth/auth-guard';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -15,7 +14,6 @@ const routes: Routes = [
   {
     path: 'dashboard',
     component: DashboardComponent,
-    // canActivate: [AuthGuard],
   },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
 ];

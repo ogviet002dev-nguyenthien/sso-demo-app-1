@@ -16,8 +16,6 @@ export class AwsCognitoService {
   public email$ = this.emailSubject.asObservable();
 
   public getTokenDetailFromCognito(code: string): Observable<any> {
-    console.log(environment.sso_client_id, environment.sso_client_secret_pw);
-
     const params_in_body = {
       grant_type: 'authorization_code',
       code: code,
