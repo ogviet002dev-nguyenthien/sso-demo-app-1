@@ -1,6 +1,8 @@
 #reg-container 
   font-family: Arial, Helvetica, sans-serif
-  background-color: black
+  background-color: white
+  max-width: 600px
+  margin: 0 auto
 
 * 
   box-sizing: border-box
@@ -38,6 +40,9 @@ hr
   width: 100%
   opacity: 0.9
 
+.disabledbtn
+  background-color: #acacac
+
 
 .registerbtn:hover 
   opacity: 1
@@ -50,3 +55,15 @@ a
 .signin 
   background-color: #f1f1f1
   text-align: center
+
+.alert
+  font-size: 14px
+  margin-bottom: 1rem
+  color: red
+
+.ng-valid[required], .ng-valid.required  
+  border-left: 5px solid #42A948
+
+
+.ng-invalid:not(form)  
+  border-left: 5px solid #a94442

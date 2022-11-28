@@ -5,7 +5,6 @@ import { SignInComponent } from 'src/app/auth/sign-in/sign-in.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AuthService } from './auth/auth.service';
 import { HomeComponent } from './home/home.component';
-import { AuthGuard } from './auth/auth-guard';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },

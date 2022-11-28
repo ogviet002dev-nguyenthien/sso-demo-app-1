@@ -9,6 +9,7 @@ import { SignUpComponent } from './auth/sign-up/sign-up.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
+import { MustmatchDirective } from './directives/mustmatch.directive';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { HomeComponent } from './home/home.component';
     SignUpComponent,
     DashboardComponent,
     HomeComponent,
+    MustmatchDirective,
   ],
   imports: [
     BrowserModule,
